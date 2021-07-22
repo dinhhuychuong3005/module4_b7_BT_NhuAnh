@@ -67,13 +67,16 @@ public class CustomerController {
             modelAndView.addObject("customer", customer.get());
             return modelAndView;
         } else {
-            ModelAndView modelAndView = new ModelAndView("/error.404");
+            ModelAndView modelAndView = getModelAndView();
             return modelAndView;
         }
     }
 
-    //hihi
-//123
+    private ModelAndView getModelAndView() {
+        return new ModelAndView("/error.404");
+    }
+
+
     @PostMapping("/edit-customer")
     public ModelAndView updateCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.save(customer);
