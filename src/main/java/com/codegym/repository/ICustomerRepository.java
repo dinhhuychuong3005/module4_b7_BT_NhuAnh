@@ -2,6 +2,8 @@ package com.codegym.repository;
 
 import com.codegym.model.Customer;
 import com.codegym.model.Province;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
@@ -15,5 +17,5 @@ public interface ICustomerRepository extends PagingAndSortingRepository<Customer
     // Spring Data JPA còn hỗ trợ thêm tự truy vấn đến cơ sở dữ liệu theo tên
     // như tên tương đương với câu truy vấn: select * from customer where province_id = ?
 
-
+    Page<Customer> findAllByFirstNameContaining(String firstname, Pageable pageable);
 }
