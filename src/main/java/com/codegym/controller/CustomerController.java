@@ -73,7 +73,7 @@ public class CustomerController {
     }
 
     //hihi
-
+//123
     @PostMapping("/edit-customer")
     public ModelAndView updateCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.save(customer);
